@@ -43,27 +43,37 @@
 #   puzzle_input.push(p)
 # }
 
-puzzle_input = []
-f = File.open("1_Sonar_Sweep.csv")
-f.each("1_Sonar_Sweep.csv") do |row|
-  puzzle_input << row
-end
-p puzzle_input
+# puzzle_input = []
+# f = File.open("1_Sonar_Sweep.csv")
+# f.each ("1_Sonar_Sweep.csv") { |row| 
+#   input = row.gsub(/[\n],[\r]/, " ")
+#   puzzle_input << input
+# }
+# p puzzle_input
+
+# puzzle_input = []
+# f = File.open("1_Sonar_Sweep.csv")
+# f.each ("1_Sonar_Sweep.csv") { |row| 
+#   puzzle_input << row.to_i
+# }
+# p puzzle_input
 
 # puzzle_input = input.split(/,/)
 
-# def larger_than(measurements)
-#   how_many = 0
-#   num = measurements[0]
-#   i = 1
-#   while i < measurements.length
-#     if num < measurements[i]
-#       how_many += 1
-#     end
-#     num = measurements[i]
-#     i += 1
-#   end
-#   return how_many
-# end
+sample_input = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263] 
 
-# p larger_than(puzzle_input)
+def larger_than(measurements)
+  how_many = 0
+  num = measurements[0]
+  i = 1
+  while i < measurements.length
+    if num < measurements[i]
+      how_many += 1
+    end
+    num = measurements[i]
+    i += 1
+  end
+  return how_many
+end
+
+p larger_than(sample_input)
