@@ -34,46 +34,22 @@
 
 # How many measurements are larger than the previous measurement?
 
-# puzzle_input = Array.new
-# f = File.open("1 Sonar Sweet - Sheet1.csv", "r")
-# f.each_line { |line|
-#   fields = line.split(',')
-#   p = Input.new
-#   p = fields[0]
-#   puzzle_input.push(p)
-# }
-
-# puzzle_input = []
-# f = File.open("1_Sonar_Sweep.csv")
-# f.each ("1_Sonar_Sweep.csv") { |row| 
-#   input = row.gsub(/\n\r/, ',')
-#   puzzle_input << input
-# }
-# p puzzle_input
-
-# puzzle_input = []
-# f = File.open("1_Sonar_Sweep.csv")
-# f.each ("1_Sonar_Sweep.csv") { |row| 
-#   puzzle_input << row.to_i
-# }
-# p puzzle_input
-
-# puzzle_input = input.split(/,/)
 
 # sample_input = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263] 
 
-# def larger_than(measurements)
-#   how_many = 0
-#   num = measurements[0]
-#   i = 1
-#   while i < measurements.length
-#     if num < measurements[i]
-#       how_many += 1
-#     end
-#     num = measurements[i]
-#     i += 1
-#   end
-#   return how_many
-# end
+def larger_than(measurements)
+  how_many = 0
+  num = measurements[0]
+  i = 1
+  while i < measurements.length
+    if num < measurements[i]
+      how_many += 1
+    end
+    num = measurements[i]
+    i += 1
+  end
+  return how_many
+end
 
-# p larger_than(sample_input)
+sample_input = File.readlines("1_Sonar_Sweep.csv").map(&:to_i)
+p larger_than(sample_input)
