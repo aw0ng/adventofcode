@@ -26,7 +26,32 @@
 # forward 2 adds 2 to your horizontal position, a total of 15.
 # After following these instructions, you would have a horizontal position of 15 and a depth of 10. (Multiplying these together produces 150.)
 
+sample_input = [ ["forward", "5"], ["down", "5"], ["forward", "8"], ["up", "3"], ["down", "8"], ["forward", "2"] ]
+
+def position(steps)
+  horizontal = 0
+  depth = 0
+  i = 0
+  while i <steps.length
+    i2 = 0
+    while i2 < steps[i].length
+      if steps[i][i2] == "forward"
+        horizontal = horizontal + steps[i][i2 + 1].to_i
+      elsif steps[i][i2] == "down"
+        depth = depth + steps[i][i2 + 1].to_i
+      else steps[i][i2] == "up"
+           depth = depth - steps[i][i2 + 1].to_i
+      end
+      i2 += 1
+    end
+    i += 1
+  end
+  p horizontal * depth
+end
+
+position(sample_input)
+
 # Calculate the horizontal position and depth you would have after following the planned course. What do you get if you multiply your final horizontal position by your final depth?
 
-sample_input = File.readlines("2_dive.csv").map{ |x| x.split }
-p sample_input
+# sample_input = File.readlines("2_dive.csv").map{ |x| x.split }
+# p sample_input
