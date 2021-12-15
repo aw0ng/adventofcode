@@ -55,21 +55,40 @@
 
 data_input = File.readlines("2_dive.csv").map{ |x| x.split }
 
+# def position(steps)
+#   horizontal = 0
+#   depth = 0
+#   i = 0
+#   while i <steps.length
+#     i2 = 0
+#     while i2 < steps[i].length
+#       if steps[i][i2] == "forward"
+#         horizontal = horizontal + steps[i][i2 + 1].to_i
+#       elsif steps[i][i2] == "down"
+#         depth = depth + steps[i][i2 + 1].to_i
+#       else steps[i][i2] == "up"
+#            depth = depth - steps[i][i2 + 1].to_i
+#       end
+#       i2 += 1
+#     end
+#     i += 1
+#   end
+#   p horizontal * depth
+# end
+
+# position(data_input)
+
 def position(steps)
   horizontal = 0
   depth = 0
   i = 0
   while i <steps.length
-    i2 = 0
-    while i2 < steps[i].length
-      if steps[i][i2] == "forward"
-        horizontal = horizontal + steps[i][i2 + 1].to_i
-      elsif steps[i][i2] == "down"
-        depth = depth + steps[i][i2 + 1].to_i
-      else steps[i][i2] == "up"
-           depth = depth - steps[i][i2 + 1].to_i
-      end
-      i2 += 1
+    if steps[i][0] == "forward"
+      horizontal = horizontal + steps[i][1].to_i
+    elsif steps[i][0] == "down"
+      depth = depth + steps[i][1].to_i
+    else steps[i][0] == "up"
+      depth = depth - steps[i][1].to_i
     end
     i += 1
   end
