@@ -29,7 +29,9 @@
 
 # The epsilon rate is calculated in a similar way; rather than use the most common bit, the least common bit from each position is used. So, the epsilon rate is 01001, or 9 in decimal. Multiplying the gamma rate (22) by the epsilon rate (9) produces the power consumption, 198.
 
-sample_input = [ 00100, 11110, 10110, 10111, 10101, 01111, 00111, 11100, 10000, 11001, 00010, 01010 ]
+sample_input = "00100, 11110, 10110, 10111, 10101, 01111, 00111, 11100, 10000, 11001, 00010, 01010"
+
+bits = sample_input.split
 
 def gamma(input)
   zeros = 0
@@ -37,22 +39,21 @@ def gamma(input)
   first_gamma = 0
   i = 0
   while i < input.length
-    if input[i][0] == 0
-      zeros += 1
-    else input[i][0] == 1
-         ones += 1
+    if input[i][0].to_i == 1
+      ones += 1
+    else input[i][0].to_i == 0
+         zeros += 1
     end
     i += 1
   end
-  p zeros
-  # if zeros > ones
-  #   first_gamma == 0
-  # else
-  #   first_gamma == 1
-  # end
-  # p first_gamma
+  if zeros > ones
+    first_gamma == 0
+  else
+    first_gamma == 1
+  end
+  p first_gamma
 end
 
-gamma(sample_input)
+gamma(bits)
 
 # Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together. What is the power consumption of the submarine? (Be sure to represent your answer in decimal, not binary.)
