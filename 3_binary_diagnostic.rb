@@ -159,4 +159,91 @@ end
 
 gamma(bits)
 
+def epsilon(input)
+  a0 = 0
+  a1 = 0
+  epsilon = []
+  i = 0
+  while i < input.length
+    if input[i][0].to_i == 0
+      a0 += 1
+    elsif
+      a1 += 1
+    end
+    i += 1
+  end
+  if a0 < a1
+    epsilon << 0
+  else
+    epsilon << 1
+  end
+  j = 0
+  b0 = 0
+  b1 = 0
+  while j < input.length
+    if input[j][1].to_i == 0
+      b0 += 1
+    elsif
+      b1 += 1
+    end
+    j += 1
+  end
+  if b0 < b1
+    epsilon << 0
+  else
+    epsilon << 1
+  end
+  k = 0
+  c0 = 0
+  c1 = 0
+  while k < input.length
+    if input[k][2].to_i == 0
+      c0 += 1
+    elsif
+      c1 += 1
+    end
+    k += 1
+  end
+  if c0 < c1
+    epsilon << 0
+  else
+    epsilon << 1
+  end
+  l = 0
+  d0 = 0
+  d1 = 0
+  while l < input.length
+    if input[l][3].to_i == 0
+      d0 += 1
+    elsif
+      d1 += 1
+    end
+    l += 1
+  end
+  if d0 < d1
+    epsilon << 0
+  else
+    epsilon << 1
+  end
+  m = 0
+  e0 = 0
+  e1 = 0
+  while m < input.length
+    if input[m][4].to_i == 0
+      e0 += 1
+    elsif
+      e1 += 1
+    end
+    m += 1
+  end
+  if e0 < e1
+    epsilon << 0
+  else
+    epsilon << 1
+  end
+  p epsilon
+end
+
+epsilon(bits)
+
 # Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together. What is the power consumption of the submarine? (Be sure to represent your answer in decimal, not binary.)
