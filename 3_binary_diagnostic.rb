@@ -29,31 +29,77 @@
 
 # The epsilon rate is calculated in a similar way; rather than use the most common bit, the least common bit from each position is used. So, the epsilon rate is 01001, or 9 in decimal. Multiplying the gamma rate (22) by the epsilon rate (9) produces the power consumption, 198.
 
+
+# 00100   
+# 11110
+# 10110
+# 10111
+# 10101
+# 01111
+# 00111
+# 11100
+# 10000
+# 11001
+# 00010
+# 01010
+
+# i = 0, i += 1 / i2 = 0 constant
+# 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0
+# 7 x 1 > 5 x 0
+# gamma = [1]
+
+# i = 0, i += 1 / i2 = 1 constant
+# 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1
+# 7 x 0 > 5 x 1
+# gamma = [10]
+
+# i = 0, i += 1 / i2 = 2 constant
+# 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
+# 8 x 1 > 4 x 0
+# gamma = [101]
+
+# i = 0, i += 1 / i2 = 3 constant
+# 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1
+# 7 x 1 > 5 x 0
+# gamma = [1011]
+
+# i = 0, i += 1 / i2 = 4 constant
+# 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0
+# 7 x 0 > 5 x 1
+# gamma = [10110]
+
 sample_input = "00100, 11110, 10110, 10111, 10101, 01111, 00111, 11100, 10000, 11001, 00010, 01010"
 
 bits = sample_input.split
 
-def gamma(input)
-  zeros = 0
-  ones = 0
-  first_gamma = 0
-  i = 0
-  while i < input.length
-    if input[i][0].to_i == 1
-      ones += 1
-    else input[i][0].to_i == 0
-         zeros += 1
-    end
-    i += 1
-  end
-  if zeros > ones
-    first_gamma == 0
-  else
-    first_gamma == 1
-  end
-  p first_gamma
-end
+# def gamma(input)
+#   i = 0
+#   ones = 0
+#   zeros = 0
+#   gamma = []
+#   while i < input.length
+#     i2 = 0
+#     while i2 < 5
+#       if input[i][i2].to_i == 1
+#         ones += 1
+#       elsif input[i][i2].to_i == 0
+#         zeros += 1
+#       end
+#       i2 += 1
+#     end
+#     if zeros > ones
+#       gamma << 0
+#     elsif ones > zeros
+#       gamma << 1
+#     end
+#     p ones
+#     p zeros
+#     p gamma
+#     i += 1
+#   end
+#   p gamma
+# end
 
-gamma(bits)
+# gamma(bits)
 
 # Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together. What is the power consumption of the submarine? (Be sure to represent your answer in decimal, not binary.)
