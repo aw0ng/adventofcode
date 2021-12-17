@@ -72,34 +72,91 @@ sample_input = "00100, 11110, 10110, 10111, 10101, 01111, 00111, 11100, 10000, 1
 
 bits = sample_input.split
 
-# def gamma(input)
-#   i = 0
-#   ones = 0
-#   zeros = 0
-#   gamma = []
-#   while i < input.length
-#     i2 = 0
-#     while i2 < 5
-#       if input[i][i2].to_i == 1
-#         ones += 1
-#       elsif input[i][i2].to_i == 0
-#         zeros += 1
-#       end
-#       i2 += 1
-#     end
-#     if zeros > ones
-#       gamma << 0
-#     elsif ones > zeros
-#       gamma << 1
-#     end
-#     p ones
-#     p zeros
-#     p gamma
-#     i += 1
-#   end
-#   p gamma
-# end
+def gamma(input)
+  a0 = 0
+  a1 = 0
+  gamma = []
+  i = 0
+  while i < input.length
+    if input[i][0].to_i == 0
+      a0 += 1
+    elsif
+      a1 += 1
+    end
+    i += 1
+  end
+  if a0 > a1
+    gamma << 0
+  else
+    gamma << 1
+  end
+  j = 0
+  b0 = 0
+  b1 = 0
+  while j < input.length
+    if input[j][1].to_i == 0
+      b0 += 1
+    elsif
+      b1 += 1
+    end
+    j += 1
+  end
+  if b0 > b1
+    gamma << 0
+  else
+    gamma << 1
+  end
+  k = 0
+  c0 = 0
+  c1 = 0
+  while k < input.length
+    if input[k][2].to_i == 0
+      c0 += 1
+    elsif
+      c1 += 1
+    end
+    k += 1
+  end
+  if c0 > c1
+    gamma << 0
+  else
+    gamma << 1
+  end
+  l = 0
+  d0 = 0
+  d1 = 0
+  while l < input.length
+    if input[l][3].to_i == 0
+      d0 += 1
+    elsif
+      d1 += 1
+    end
+    l += 1
+  end
+  if d0 > d1
+    gamma << 0
+  else
+    gamma << 1
+  end
+  m = 0
+  e0 = 0
+  e1 = 0
+  while m < input.length
+    if input[m][4].to_i == 0
+      e0 += 1
+    elsif
+      e1 += 1
+    end
+    m += 1
+  end
+  if e0 > e1
+    gamma << 0
+  else
+    gamma << 1
+  end
+  p gamma
+end
 
-# gamma(bits)
+gamma(bits)
 
 # Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together. What is the power consumption of the submarine? (Be sure to represent your answer in decimal, not binary.)
