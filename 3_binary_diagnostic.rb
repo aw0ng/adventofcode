@@ -68,9 +68,201 @@
 # 7 x 0 > 5 x 1
 # gamma = [10110]
 
-sample_input = "00100, 11110, 10110, 10111, 10101, 01111, 00111, 11100, 10000, 11001, 00010, 01010"
+# sample_input = "00100, 11110, 10110, 10111, 10101, 01111, 00111, 11100, 10000, 11001, 00010, 01010"
 
-bits = sample_input.split
+# bits = sample_input.split
+
+# def gamma(input)
+#   a0 = 0
+#   a1 = 0
+#   gamma = []
+#   i = 0
+#   while i < input.length
+#     if input[i][0].to_i == 0
+#       a0 += 1
+#     elsif
+#       a1 += 1
+#     end
+#     i += 1
+#   end
+#   if a0 > a1
+#     gamma << 0
+#   else
+#     gamma << 1
+#   end
+#   j = 0
+#   b0 = 0
+#   b1 = 0
+#   while j < input.length
+#     if input[j][1].to_i == 0
+#       b0 += 1
+#     elsif
+#       b1 += 1
+#     end
+#     j += 1
+#   end
+#   if b0 > b1
+#     gamma << 0
+#   else
+#     gamma << 1
+#   end
+#   k = 0
+#   c0 = 0
+#   c1 = 0
+#   while k < input.length
+#     if input[k][2].to_i == 0
+#       c0 += 1
+#     elsif
+#       c1 += 1
+#     end
+#     k += 1
+#   end
+#   if c0 > c1
+#     gamma << 0
+#   else
+#     gamma << 1
+#   end
+#   l = 0
+#   d0 = 0
+#   d1 = 0
+#   while l < input.length
+#     if input[l][3].to_i == 0
+#       d0 += 1
+#     elsif
+#       d1 += 1
+#     end
+#     l += 1
+#   end
+#   if d0 > d1
+#     gamma << 0
+#   else
+#     gamma << 1
+#   end
+#   m = 0
+#   e0 = 0
+#   e1 = 0
+#   while m < input.length
+#     if input[m][4].to_i == 0
+#       e0 += 1
+#     elsif
+#       e1 += 1
+#     end
+#     m += 1
+#   end
+#   if e0 > e1
+#     gamma << 0
+#   else
+#     gamma << 1
+#   end
+#   p gamma
+# end
+
+# gamma_bits = gamma(bits)
+
+# def epsilon(input)
+#   a0 = 0
+#   a1 = 0
+#   epsilon = []
+#   i = 0
+#   while i < input.length
+#     if input[i][0].to_i == 0
+#       a0 += 1
+#     elsif
+#       a1 += 1
+#     end
+#     i += 1
+#   end
+#   if a0 < a1
+#     epsilon << 0
+#   else
+#     epsilon << 1
+#   end
+#   j = 0
+#   b0 = 0
+#   b1 = 0
+#   while j < input.length
+#     if input[j][1].to_i == 0
+#       b0 += 1
+#     elsif
+#       b1 += 1
+#     end
+#     j += 1
+#   end
+#   if b0 < b1
+#     epsilon << 0
+#   else
+#     epsilon << 1
+#   end
+#   k = 0
+#   c0 = 0
+#   c1 = 0
+#   while k < input.length
+#     if input[k][2].to_i == 0
+#       c0 += 1
+#     elsif
+#       c1 += 1
+#     end
+#     k += 1
+#   end
+#   if c0 < c1
+#     epsilon << 0
+#   else
+#     epsilon << 1
+#   end
+#   l = 0
+#   d0 = 0
+#   d1 = 0
+#   while l < input.length
+#     if input[l][3].to_i == 0
+#       d0 += 1
+#     elsif
+#       d1 += 1
+#     end
+#     l += 1
+#   end
+#   if d0 < d1
+#     epsilon << 0
+#   else
+#     epsilon << 1
+#   end
+#   m = 0
+#   e0 = 0
+#   e1 = 0
+#   while m < input.length
+#     if input[m][4].to_i == 0
+#       e0 += 1
+#     elsif
+#       e1 += 1
+#     end
+#     m += 1
+#   end
+#   if e0 < e1
+#     epsilon << 0
+#   else
+#     epsilon << 1
+#   end
+#   p epsilon
+# end
+
+# epsilon_bits = epsilon(bits)
+
+# 1 0 1 1 0
+# (0 * 2) + 1 = 1
+# (1 * 2) + 0 = 2
+# (2 * 2) + 1 = 5
+# (5 * 2) + 1 = 11
+# (11 * 2) + 0 = 22
+
+# 0 1 0 0 1
+# (0 * 2) + 0 = 0
+# (0 * 2) + 1 = 1
+# (1 * 2) + 0 = 2
+# (2 * 2) + 0 = 4
+# (4 * 2) + 1 = 9
+
+# Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together. What is the power consumption of the submarine? (Be sure to represent your answer in decimal, not binary.)
+
+data_input = File.readlines("3_binary.csv").map{ |x| x.split }
 
 def gamma(input)
   a0 = 0
@@ -157,7 +349,7 @@ def gamma(input)
   p gamma
 end
 
-gamma(bits)
+gamma_bits = gamma(data_input)
 
 def epsilon(input)
   a0 = 0
@@ -244,6 +436,20 @@ def epsilon(input)
   p epsilon
 end
 
-epsilon(bits)
+epsilon_bits = epsilon(data_input)
 
-# Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together. What is the power consumption of the submarine? (Be sure to represent your answer in decimal, not binary.)
+# 1 0 0 0 0
+# (0 * 2) + 1 = 1
+# (1 * 2) + 0 = 2
+# (2 * 2) + 0 = 4
+# (4 * 2) + 0 = 8
+# (8 * 2) + 0 = 16
+
+# 0 1 1 1 1
+# (0 * 2) + 0 = 0
+# (0 * 2) + 1 = 1
+# (1 * 2) + 1 = 3
+# (3 * 2) + 1 = 7
+# (7 * 2) + 1 = 15
+
+# 16 * 15 = 240
